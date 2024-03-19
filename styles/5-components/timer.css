@@ -1,0 +1,70 @@
+.timer__container {
+  display: flex;
+  justify-content: center;
+}
+
+.timer {
+  min-width: 259px;
+  max-width: 323px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: 16px var(--spacing-8);
+  background-color: var(--background);
+}
+
+#timer__title {
+  margin: 0;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+#inputTime {
+  padding: var(--spacing-2) var(--spacing-3);
+  max-width: 60px;
+  font-size: 14px;
+}
+
+#segundos {
+  font-size: 18px;
+}
+
+#empezar {
+  margin-left: 4px;
+  color: var(--success-foreground);
+  border-radius: var(--rounded-md);
+  border: 1px solid var(--success-border);
+  background: var(--success);
+}
+
+#display {
+  font-family: Familjen Grotesk;
+  font-size: var(--font-6xl);
+  line-height: var(--font-6xl);
+}
+
+.timer__buttons {
+  display: flex;
+  gap: 16px;
+}
+
+#continuarPausar {
+  color: var(--secondary-foreground);
+  border-radius: var(--rounded-md);
+  background: var(--neutral-200);
+}
+
+#detener {
+  color: var(--danger-foreground);
+  border-radius: var(--rounded-md, 6px);
+  border: 1px solid var(--danger-border);
+  background: var(--danger);
+}
+
+:target {
+  scroll-margin-top: 102px;
+}

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codificable - Blog: Conoce los elementos básicos de HTML</title>
+  <link rel="stylesheet" href="/styles/index.css" />
+</head>
+
+
+<body>
+  <div class="pancake-stack" id="top">
+    <header class="header container">
+      <h1 class="header__logo"><a href="/index.html">Codificable</a></h1>
+      <nav class="header__navigation navigation">
+        <ul>
+          <li><a href="/blog/index.html">Blog</a></li>
+          <li><a href="#">Sobre nosotros</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <button class="button button--sm mostrarModal" id="">Login</button>
+      </div>
+      <button class="header__menu-icon button button--icon button--outline">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M2.66663 8H13.3333M2.66663 4H13.3333M2.66663 12H13.3333" stroke="currentColor" stroke-width="1.33"
+            stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </header>
+    <main>
+      <!-- El modal -->
+      <div id="miModal" class="modal">
+        <div class="modal-ventana">
+          <form class="modal-interno" action="#" id="form">
+            <span class="cerrar" id="cerrarModal"><img src="../assets/icons/x.svg" alt="Close icon"></span>
+            <h2 style="font-size: 2rem; text-align: center; font-family: Inter; font-weight: 700; ">
+              Ingresa a tu cuenta
+            </h2>
+            <form style="width: 360; height: 228; gap: 32px">
+              <div class="modal-form-block">
+                <label style="font-size: 14px" for="email">Email</label>
+                <input type="email" class="modal-input" name="email" placeholder="user@mail.com" />
+              </div>
+              <div class="modal-form-block">
+                <label for="password">Password</label>
+                <input title="password" class="modal-input" type="password" name="password" />
+              </div>
+              <div>
+                <button class="button--form" style=" border: 0px;">Login</button>
+              </div>
+            </form>
+          </form>
+        </div>
+      </div>
+      <!-- final de modal -->
+      <!-- start of mobileButton -->
+      <div class="header__menu-content">
+        <ul class="header__nav">
+          <li class="header__nav-item">
+            <a href="/blog/index.html">Blog</a>
+          </li>
+          <li class="header__nav-item">
+            <a href="/blog/calculadora-con-javascript.html">Sobre nosotros</a>
+          </li>
+        </ul>
+        <button class="button_movil mostrarModal" id="mobileButon">
+          Login
+        </button>
+      </div>
+      <!-- finsh of mobileButton -->
+
+      <div class="section">
+        <div class="container">
+          <div class="article-container">
+            <div class="toc">
+              <p class="toc__title">En este artículo:</p>
+              <ul class="toc__links">
+                <li><a href="#uno">Código HTML</a></li>
+                <li>
+                  <a href="#dos">Código Css</a>
+                </li>
+                <li>
+                  <a href="#tres">Código Javascript</a>
+                </li>
+                <li>
+                  <a href="#cuatro">Resultado Final </a>
+                </li>
+              </ul>
+            </div>
+            <article class="article">
+              <header class="article__header">
+                <div class="article-metadata">
+                  <span class="article-metadata__date">05 Octubre 2023</span>
+                  <span class="article-metadata__tag">Principiante</span>
+                </div>
+                <div class="author">
+                  <img src="/assets/images/manuel-cuya.jpg" alt="Manuel Cuya Avatar" width="320" height="480"
+                    class="author__avatar" />
+                  <div class="author__info">
+                    <strong class="author_name">Manuel Cuya Camara</strong>
+                    <span>Frontend Developer student</span>
+                  </div>
+                </div>
+              </header>
+              <div class="content">
+                <h1> Calculadora con JavaScript</h1>
+                <img src="/assets/images/img-cal.jpg" alt=" " width="1344" height="896" />
+                <p>
+                  En este artículo, te invitamos a aprender
+                  los fundamentos de la creación de una calculadora desde cero utilizando las tecnologías esenciales de
+                  la web: HTML, CSS y JavaScript.
+                  A lo largo de este tutorial, te guiaremos paso a paso
+                  que te permitirá construir tu propia calculadora funcional desde cero.
+                  Descubrirás cómo concebir la idea, planificar la estructura y escribir el código necesario para lograr
+                  una calculadora completamente operativa.
+                </p>
+                <video width="640" height="360" controls>
+                  <source src="/assets/videos/calculator_hhlcng.mov" type="video/mp4" />
+                  Tu navegador no admite la reproducción de video.
+                </video>
+                <h2 id="pasos">Pasos para crear una calculadora usando HTML, CSS y JavaScript</h2>
+
+
+
+
+
+                <ol>
+                  <li>
+                    <h3 id="uno"> Código HTML</h3>
+                    <pre><code>
+&lt;section&gt;
+&lt;div class="calculator__box"&gt;
+  &lt;ul class="calculator__display"&gt;
+    &lt;li class="calculator--numeroPrevio"&gt;123&lt;/li&gt;
+    &lt;li class="calculator--operador"&gt;-&lt;/li&gt;
+    &lt;li class="calculator--numeroActual"&gt;123&lt;/li&gt;
+  &lt;/ul&gt; 
+                      </code></pre>
+                    <p>
+                      Creamos un seccion en el documento, en el cual agruparemos los elementos relacionados a la
+                      calculadora
+                      se crea un contenedor <code>&lt;div&gt;</code> con la clase CSS <code>.calculator__box</code>.
+                      Se crea otra lista desordenada <code> &lt;ul&gt;</code> con la clase
+                      <code>.calculator__keys</code>.
+                    </p>
+
+                    <p>
+                      Esta lista contiene los botones de la calculadora, que son elementos de lista
+                      <code>&lt;li&gt;</code>.
+                      Los botones representan números, operadores y funciones especiales.
+
+                    </p>
+
+                    <h3> Operadores y Botones</h3>
+                    <pre><code>
+&lt;ul class="calculator__keys"&gt;
+  &lt;li class="calculator__key calculator--operator"&gt;÷&lt;/li&gt;
+  &lt;li class="calculator__key"&gt;1&lt;/li&gt;
+  &lt;li class="calculator__key"&gt;2&lt;/li&gt;
+  &lt;li class="calculator__key"&gt;3&lt;/li&gt;
+  &lt;li class="calculator__key"&gt;
+    &lt;svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"&gt;...
+    &lt;/svg&gt;
+  &lt;/li&gt; 
+  &lt;li class="calculator__key calculator--operator"&gt;×&lt;/li&gt;
+  &lt;li class="calculator__key"&gt;4&lt;/li&gt; 
+  &lt;li class="calculator__key"&gt;5&lt;/li&gt;
+  &lt;li class="calculator__key"&gt;6&lt;/li&gt;
+  &lt;li class="calculator__key"&gt;c&lt;/li&gt;
+
+  &lt;li class="calculator__key calculator--operator"&gt;-&lt;/li&gt;
+  &lt;li class="calculator__key"&gt;7&lt;/li&gt;
+  &lt;li class="calculator__key"&gt;8&lt;/li&gt;
+  &lt;li class="calculator__key"&gt;9&lt;/li&gt;
+  &lt;li class="calculator__key calculator--equal"&gt;=&lt;/li&gt;
+
+  &lt;li class="calculator__key calculator--operator"&gt;+&lt;/li&gt;
+  &lt;li class="calculator__key calculator--0"&gt;0&lt;/li&gt;
+  &lt;li class="calculator__key"&gt;.&lt;/li&gt;
+  &lt;li class="calculator__key calculator--equal"&gt;=&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+
+
+                    <ul>
+
+                      <li>Los botones numéricos del 1 al 9 están representados como <code>&lt;li&gt;</code> con la clase
+                        CSS
+                        <code>.calculator__key</code>.
+                      </li>
+
+                      <li> Los botones de operadores como la división ( ÷ ), la multiplicación ( × ), la resta ( - ) y
+                        la
+                        suma (
+                        + ) están representados como <code>&lt;li&gt;</code> con la clase CSS
+                        <code>.calculator--operator</code>.
+                      </li>
+
+                      <li>
+                        El botón de igual ( = ) están representado como <code>&lt;li&gt;</code> con la clase CSS
+                        <code>.calculator--equal</code>.
+                      </li>
+
+
+                    </ul>
+                  </li>
+
+
+
+                  <li>
+
+                    <h3 id="dos"> Código Css</h3>
+
+                    <pre><code>
+.calculator__box {
+  display: grid;
+  justify-content: center;
+  font-family: var(--display);
+  font-size: var(--font-xl);
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--leading-8);
+}
+
+.calculator__display {
+  display: flex;
+  width: 224px;
+  height: var(--spacing-12);
+  padding: 18px 29px !important;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  background: var(--neutral-100);
+  border-top: 1px solid var(--neutral-300, #d4d4d4);
+  border-left: 1px solid var(--neutral-300, #d4d4d4);
+  border-right: 1px solid var(--neutral-300, #d4d4d4);
+  list-style: none;
+  margin: 0 !important;
+}  
+</code></pre>
+
+
+                    <p>
+                      En este código CSS se define la apariencia y el diseño de una calculadora web. Se establecen
+                      reglas
+                      de estilo para los elementos que componen la calculadora, como los botones numéricos, los botones
+                      de
+                      operadores y las pantallas donde se muestran los números y resultados.
+                    </p>
+
+
+                    <ul>
+                      <li>
+                        <code>.calculator__box</code>: Esta clase se utiliza para diseñar un contenedor con una
+                        cuadrícula
+                        que centra su
+                        contenido horizontalmente. Defina la fuente, el tamaño, el estilo y el grosor de la fuente, así
+                        como
+                        la altura de la línea del texto.
+                      </li>
+
+                      <li>
+                        <code>.calculator__display</code>: Esta clase se aplica a un contenedor flexible que alinea su
+                        contenido en una fila horizontalmente. Establece un ancho fijo, altura variable, relleno
+                        importante
+                        y bordes para el contenedor. También centra vertical y horizontalmente su contenido y define un
+                        espacio de 4 píxeles entre elementos, sin permitir que se reduzcan en tamaño.
+                      </li>
+                    </ul>
+
+                    <pre><code>
+.calculator__keys {
+  width: 224px;
+  display: grid;
+  list-style: none;
+  grid-template-columns: repeat(5, 1fr);
+  border-bottom: 1px solid var(--neutral-300, #d4d4d4);
+  border-right: 1px solid var(--neutral-300, #d4d4d4);
+  padding-left: 0 !important;
+  margin: 0 !important;
+}
+
+.calculator__key {
+  color: var(--muted-foreground, #525252);
+  border-left: 1px solid var(--neutral-300, #d4d4d4);
+  border-top: 1px solid var(--neutral-300, #d4d4d4);
+  background: #fff;
+  margin: 0 !important;
+  padding: 0 !important;
+  cursor: pointer;
+  font-family: var(--display);
+  font-size: var(--font-xl);
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--leading-6); /* 160% */
+
+  display: flex;
+  /* width: var(--spacing-12); */
+  min-height: var(--spacing-12);
+  /* padding: 18px 29px; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+</code></pre>
+
+
+                    <ul>
+                      <li>
+                        <code>.calculator__keys</code> : Esta clase se utiliza para diseñar un contenedor de teclas de
+                        calculadora. Establece un ancho fijo de 224 píxeles y utiliza una cuadrícula para organizar las
+                        teclas
+                        en 5 columnas iguales. Se aplican bordes inferiores y derechos para dar una apariencia de
+                        cuadrícula
+                        a
+                        las teclas. También elimine el relleno y el margen predeterminados.
+                      </li>
+                      <li>
+                        <code>.calculator__key</code> : Esta clase se aplica a cada tecla individual dentro del
+                        contenedor
+                        de
+                        teclas de la
+                        calculadora. Defina el color del texto, los bordes izquierdo y superior, y el fondo de cada
+                        tecla.
+                        Además, establece el cursor del mouse como puntero y define varios estilos de fuente y espaciado
+                        para
+                        el texto de la tecla. Cada tecla se muestra como una columna flexible con una altura mínima,
+                        relleno
+                        y
+                        espacio entre elementos, y no se reducirá en tamaño cuando el espacio sea insuficiente.
+                      </li>
+                    </ul>
+
+
+                    <pre><code>
+.calculator--operator {
+  background: var(--muted, #f5f5f5);  
+}
+.calculator--number {
+  background: #fff;
+}
+
+.calculator--0 {
+  grid-column: 2/4 !important;
+}
+
+.calculator--equal {
+  grid-row: 3/5;
+  grid-column: 5/6;
+  background: var(--violet-500, #8b5cf6);
+  color: var(--primary-foreground);
+}
+
+.calculator__key:hover {
+  background-color: var(--violet-300);
+}
+
+.calculator--delete svg {
+  pointer-events: none;
+}
+</code></pre>
+                    <ul>
+
+
+                      <li>
+                        <code>.calculator--operator</code> : Esta clase se aplica a los operadores de la calculadora.
+                        Defina
+                        un fondo utilizando una variable personalizada "--muted" o un color predeterminado si la
+                        variable no
+                        está definida.
+
+                      </li>
+                      <code>.calculator--operator</code> : Esta clase se aplica a los números en la calculadora. Defina
+                      un
+                      fondo blanco para
+                      los números.
+                      <li>
+                        <code>.calculator--0</code> : Esta clase se aplica a la tecla "0" en la calculadora y ajusta su
+                        posición en la
+                        cuadrícula para abarcar desde la columna 2 hasta la columna 4 con un valor importante para
+                        anular
+                        otras reglas de estilo.
+                      </li>
+
+                      <li>
+                        <code>.calculator__key:hover</code> : Esta regla define el estilo que se aplica cuando el mouse
+                        se
+                        encuentra sobre
+                        cualquier tecla dentro del contenedor de teclas de la calculadora. Cambia el fondo a un tono más
+                        claro
+                        de violeta cuando se produce el evento hover.
+                      </li>
+
+                      <li>
+                        <code>.calculator--delete svg</code>: Esta regla se aplica a un icono dentro de la tecla de
+                        eliminación. Establece
+                        la propiedad "pointer-events" en "none", lo que significa que el icono no responderá a eventos
+                        de
+                        puntero como clics.
+
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+
+                    <h3 id="tres"> Código Javascript</h3>
+
+                    <h3>Programación Orientada a Objetos (POO)</h3>
+                    <p>Ahora que tenemos la estructura HTML en su lugar, vamos a escribir el código JavaScript
+                      utilizando programación orientada a objetos. Crearemos una clase Calculator que contendrá todos
+                      los métodos y propiedades necesarios para realizar las operaciones de la calculadora.</p>
+
+                    <pre><code>
+class Calculator {
+constructor() {
+    // Propiedades de la calculadora
+    this.numeroPrevio = "";
+    this.operador = "";
+    this.numeroActual = "";
+    this.numDigit = 0;
+    this.checkpoint = false;
+    this.checkOperador = false;
+    this.checkResult = false;
+    this.checkDelete = false;
+    this.indexOperation = -1;
+    this.listOperation = ["÷", "×", "-", "+"];
+    this.displayNumPrev = document.querySelector(".calculator--numeroPrevio");
+    this.displayOperator = document.querySelector(".calculator--operador");
+    this.displayNumActual = document.querySelector(".calculator--numeroActual");
+    this.keys = document.querySelector(".calculator__keys");
+
+    // Adjuntar eventos
+    this.attachEventListeners();
+}
+
+// Otros métodos de la clase Calculator
+}
+                      </code></pre>
+
+
+
+                    <p>En el constructor de la clase Calculator, inicializamos las propiedades que representarán los
+                      valores y el estado de la calculadora. También seleccionamos elementos del DOM que representan la
+                      pantalla y los botones de la calculadora.</p>
+                  </li>
+
+
+                  <h3>Métodos de la Calculadora</h3>
+                  <p>La clase Calculator tendrá varios métodos para realizar operaciones y manejar eventos. Aquí se
+                    incluyen algunos de los métodos clave:</p>
+
+
+                  <pre><code>
+redondearNumero(numero) {
+  const numeroRendondeado = Number(numero.toFixed(2));
+  return numeroRendondeado;
+}
+
+calcularResultado() {
+  this.indexOperation = this.listOperation.indexOf(this.operador);
+  let finalResult;
+
+  if (this.numeroPrevio === "") this.numeroPrevio = "0";
+
+  switch (this.indexOperation) {
+    case 0:
+      finalResult =
+        parseFloat(this.numeroPrevio) / parseFloat(this.numeroActual);
+      break;
+    case 1:
+      finalResult =
+        parseFloat(this.numeroPrevio) * parseFloat(this.numeroActual);
+      break;
+    case 2:
+      finalResult =
+        parseFloat(this.numeroPrevio) - parseFloat(this.numeroActual);
+      break;
+    case 3:
+      finalResult =
+        parseFloat(this.numeroPrevio) + parseFloat(this.numeroActual);
+      break;
+  }
+
+  finalResult = this.redondearNumero(finalResult);
+  this.displayNumActual.textContent = "";
+  this.numeroActual = "";
+
+  this.displayOperator.textContent = "";
+  this.numeroPrevio = finalResult;
+  this.displayNumPrev.textContent = finalResult;
+
+  this.checkResult = true;
+}
+
+actualizarDisplay() {
+  this.displayNumPrev.textContent = this.numeroPrevio;
+  this.displayOperator.textContent = this.operador;
+  this.displayNumActual.textContent = this.numeroActual;
+}
+                  </code></pre>
+
+
+                  <ul>
+                    <li><code>redondearNumero(numero)</code>: Este método se utiliza para redondear un número a dos
+                      decimales.</li>
+                    <li><code>calcularResultado():</code>: Calcula el resultado de una operación basada en el número
+                      previo, el operador y el número actual.</li>
+                    <li><code>actualizarDisplay():</code>: Actualiza la pantalla de la
+                      calculadora con los valores actuales.</li>
+                    <li><code>attachEventListeners():</code>: Adjunta manejadores de eventos a
+                      los botones de la calculadora para detectar clics y realizar las operaciones correspondientes.
+                    </li>
+                  </ul>
+                  <h3>Eventos y Lógica de la Calculadora</h3>
+
+                  <p>La lógica de la calculadora se controla principalmente a través de los eventos. Hemos utilizado un
+                    único manejador de eventos en la función <code>attachEventListeners()</code> para gestionar los
+                    clics en los
+                    botones de la calculadora. Esta función se encarga de dirigir los clics a los métodos adecuados para
+                    procesar la entrada y realizar cálculos.</p>
+
+                  <h3>Uso de la Calculadora</h3>
+
+                  <p>Finalmente, para utilizar la calculadora, simplemente creamos una instancia de la clase
+                    <code>Calculator</code> :
+                  </p>
+                  <pre><code>
+const calculator = new Calculator();
+                    </code></pre>
+
+                  <p>Esto inicializará la calculadora y la hará funcional en la página web.</p>
+                  <li>
+
+
+
+
+
+
+
+                    <h2 id="cuatro"> Resultado Final </h2>
+
+                    <section>
+
+                      <div class="calculator__box">
+                        <ul class="calculator__display">
+                          <li class="calculator--numeroPrevio">0</li>
+                          <li class="calculator--operador"> </li>
+                          <li class="calculator--numeroActual"></li>
+                        </ul>
+
+                        <ul class="calculator__keys">
+                          <li class="calculator__key calculator--operator">÷</li>
+                          <li class="calculator__key">1</li>
+                          <li class="calculator__key">2</li>
+                          <li class="calculator__key">3</li>
+                          <li class="calculator__key calculator--delete">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M20 5H9L2 12L9 19H20C20.5304 19 21.0391 18.7893 21.4142 18.4142C21.7893 18.0391 22 17.5304 22 17V7C22 6.46957 21.7893 5.96086 21.4142 5.58579C21.0391 5.21071 20.5304 5 20 5Z"
+                                stroke="#525252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                              <path d="M18 9L12 15" stroke="#525252" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                              <path d="M12 9L18 15" stroke="#525252" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            </svg>
+
+                          </li>
+
+                          <li class="calculator__key calculator--operator">×</li>
+                          <li class="calculator__key">4</li>
+                          <li class="calculator__key">5</li>
+                          <li class="calculator__key">6</li>
+                          <li class="calculator__key">c</li>
+
+                          <li class="calculator__key calculator--operator">-</li>
+                          <li class="calculator__key">7</li>
+                          <li class="calculator__key">8</li>
+                          <li class="calculator__key">9</li>
+                          <li class="calculator__key calculator--equal">=</li>
+
+                          <li class="calculator__key calculator--operator">+</li>
+                          <li class="calculator__key calculator--0">0</li>
+                          <li class="calculator__key">.</li>
+                          <li class="calculator__key calculator--equal">=</li>
+                        </ul>
+                      </div>
+                    </section>
+
+                    <h2>Conclusiones</h2>
+                    <p>
+                      En este tutorial, has aprendido cómo crear una calculadora en JavaScript utilizando programación
+                      orientada a objetos. La POO te permite organizar y estructurar tu código de manera eficiente, lo
+                      que
+                      facilita el mantenimiento y la expansión de tu proyecto. Puedes personalizar aún más esta
+                      calculadora agregando características adicionales, como funciones trigonométricas o historial de
+                      cálculos. ¡Espero que este tutorial te haya sido útil para comprender cómo aplicar la POO en
+                      proyectos de JavaScript!
+                    </p>
+
+
+                  </li>
+                </ol>
+
+
+
+
+
+
+
+
+
+
+              </div>
+              <a class="back-to-top" href="#top">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g>
+                    <path d="M15 12.5L10 7.5L5 12.5" stroke="#171717" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </g>
+                </svg>
+                top
+              </a>
+            </article>
+
+          </div>
+        </div>
+    </main>
+
+    <footer class="container footer">
+      <ul class="footer-links">
+        <li><a href="">Link 1</a></li>
+        <li><a href="">Link 2</a></li>
+        <li><a href="">Link 3</a></li>
+        <li><a href="">Link 4</a></li>
+        <li><a href="">Link 5</a></li>
+      </ul>
+      <ul class="social-links">
+        <li>
+          <a href="https://www.facebook.com/" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path
+                  d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path
+                  d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.twitter.com/" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path
+                  d="M22 4.00002C22 4.00002 21.3 6.10002 20 7.40002C21.6 17.4 10.6 24.7 2 19C4.2 19.1 6.4 18.4 8 17C3 15.5 0.5 9.60002 3 5.00002C5.2 7.60002 8.6 9.10002 12 9.00002C11.1 4.80002 16 2.40002 19 5.20002C20.1 5.20002 22 4.00002 22 4.00002Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.github.com/" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path
+                  d="M15 22V18C15.1392 16.7473 14.78 15.4901 14 14.5C17 14.5 20 12.5 20 9C20.08 7.75 19.73 6.52 19 5.5C19.28 4.35 19.28 3.15 19 2C19 2 18 2 16 3.5C13.36 3 10.64 3 8.00004 3.5C6.00004 2 5.00004 2 5.00004 2C4.70004 3.15 4.70004 4.35 5.00004 5.5C4.27191 6.51588 3.91851 7.75279 4.00004 9C4.00004 12.5 7.00004 14.5 10 14.5C9.61004 14.99 9.32004 15.55 9.15004 16.15C8.98004 16.75 8.93004 17.38 9.00004 18V22"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M9 18C4.49 20 4 16 2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </g>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <small class="footer__text">&copy; 2023 Codificable - Todos los derechos reservados</small>
+    </footer>
+  </div>
+  <script src="../javaScript/calculadora.js"></script>
+  <script src="../javaScript/indexForm.js"></script>
+  <script src="../javaScript/menu.js"></script>
+</body>
+
+</html>

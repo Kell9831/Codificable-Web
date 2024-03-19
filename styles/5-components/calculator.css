@@ -1,0 +1,91 @@
+.calculator__box {
+  display: grid;
+  justify-content: center;
+  font-family: var(--display);
+  font-size: var(--font-xl);
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--leading-8);
+}
+
+.calculator__display {
+  display: flex;
+  width: 224px;
+  height: var(--spacing-12);
+   padding: 18px 29px !important;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  background: var(--neutral-100);
+  border-top: 1px solid var(--neutral-300, #d4d4d4);
+  border-left: 1px solid var(--neutral-300, #d4d4d4);
+  border-right: 1px solid var(--neutral-300, #d4d4d4);
+  list-style: none;
+  margin: 0 !important;
+}
+
+.calculator__keys {
+  width: 224px;
+  display: grid;
+  list-style: none;
+  grid-template-columns: repeat(5, 1fr);
+  border-bottom: 1px solid var(--neutral-300, #d4d4d4);
+  border-right: 1px solid var(--neutral-300, #d4d4d4);
+padding-left: 0 !important;
+  margin: 0 !important;
+}
+
+.calculator__key {
+  color: var(--muted-foreground, #525252);
+  border-left: 1px solid var(--neutral-300, #d4d4d4);
+  border-top: 1px solid var(--neutral-300, #d4d4d4);
+  background: #fff;
+margin: 0 !important;
+  padding: 0 !important;
+  cursor: pointer;
+  font-family: var(--display);
+  font-size: var(--font-xl);
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--leading-6); /* 160% */
+
+  display: flex;
+  /* width: var(--spacing-12); */
+  min-height: var(--spacing-12);
+  /* padding: 18px 29px; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.calculator--operator {
+  background: var(--muted, #f5f5f5);
+}
+.calculator--number {
+  background: #fff;
+}
+
+.calculator--0 {
+    grid-column: 2/4 !important;
+}
+
+.calculator--equal {
+  grid-row: 3/5;
+  grid-column: 5/6;
+  background: var(--violet-500, #8b5cf6);
+  color: var(--primary-foreground);
+}
+
+.calculator__key:hover {
+  background-color: var(--violet-300);
+}
+
+.calculator--delete svg {
+  pointer-events: none;
+  }
+

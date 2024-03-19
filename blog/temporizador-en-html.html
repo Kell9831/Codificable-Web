@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temporizador</title>
+  <link rel="stylesheet" href="/styles/index.css" />
+  <script src="/javaScript/indexForm.js"></script>
+</head>
+
+<body>
+  <div class="pancake-stack" id="top">
+    <header class="header container">
+      <h1 class="header__logo"><a href="/index.html">Codificable</a></h1>
+      <nav class="header__navigation navigation">
+        <ul>
+          <li><a href="/blog/index.html">Blog</a></li>
+          <li><a href="#">Sobre nosotros</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <button class="button button--sm mostrarModal">Login</button>
+      </div>
+      <button class="header__menu-icon button button--icon button--outline">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M2.66663 8H13.3333M2.66663 4H13.3333M2.66663 12H13.3333" stroke="currentColor" stroke-width="1.33"
+            stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </header>
+
+    <main>
+      <!-- El modal -->
+      <div id="miModal" class="modal">
+        <div class="modal-ventana">
+          <form class="modal-interno" action="#" id="form">
+            <span class="cerrar" id="cerrarModal"> <img src="../assets/icons/x.svg" alt="Close icon"></span>
+            <h2 style="font-size: 2rem; text-align: center; font-family: inter; font-weight: 700; ">
+              Ingresa a tu cuenta
+            </h2>
+            <form style="width: 360; height: 228; gap: 32px">
+              <div class="modal-form-block">
+                <label style="font-size: 14px" for="email">Email</label>
+                <input type="email" class="modal-input" name="email" placeholder="user@mail.com" />
+              </div>
+              <div class="modal-form-block">
+                <label for="password">Password</label>
+                <input title="password" class="modal-input" type="password" name="password" />
+              </div>
+              <div>
+                <button class="button--form">Login</button>
+              </div>
+            </form>
+          </form>
+        </div>
+      </div>
+      <!-- final de modal -->
+      <!-- start of mobileButton -->
+
+      <div class="header__menu-content">
+        <ul class="header__nav">
+          <li class="header__nav-item">
+            <a href="/blog/index.html">Blog</a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#">Sobre nosotros</a>
+          </li>
+        </ul>
+        <button class="button_movil mostrarModal" id="mobileButon">
+          Login
+        </button>
+      </div>
+      <!-- finsh of mobileButton -->
+      <div class="section">
+        <div class="container">
+          <div class="article-container">
+            <div class="toc">
+              <p class="toc__title">En este artículo:</p>
+              <ul class="toc__links">
+                <li>
+                  <a href="#como-crear-un-temporizador">¿Cómo crear un temporizador?</a>
+                </li>
+                <li>
+                  <a href="#html-creando-la-estructura">HTML: Creando la Estructura
+                  </a>
+                </li>
+                <li>
+                  <a href="#javascript-funcionalidad-del-temporizador">JavaScript: Funcionalidad del Temporizador
+                  </a>
+                </li>
+                <li>
+                  <a href="#css-estilizando-el-temporizador">CSS: Estilizando el Temporizador
+                  </a>
+                </li>
+                <li>
+                  <a href="#temporizador-ejemplo">Temporizador de ejemplo </a>
+                </li>
+                <li>
+                  <a href="#ready-to-go">Ready to go! </a>
+                </li>
+              </ul>
+            </div>
+            <article class="article">
+              <header class="article__header">
+                <div class="article-metadata">
+                  <span class="article-metadata__date"> 05 Octubre 2023</span>
+                  <span class="article-metadata__tag">Principiante</span>
+                </div>
+                <div class="author">
+                  <img src="/assets/images/joel-gantiva.jpg" alt="Joel Gantiva Avatar" width="320" height="480"
+                    class="author__avatar" />
+                  <div class="author__info">
+                    <strong class="author_name">Joel Gantiva</strong>
+                    <span>Frontend Developer student</span>
+                  </div>
+                </div>
+              </header>
+              <div class="content">
+                <h1 id="como-crear-un-temporizador">
+                  Tutorial: Cómo Crear un Temporizador en JavaScript, HTML y
+                  CSS
+                </h1>
+                <img src="/assets/images/temporizador.jpg" alt="Phone taking picture of meal" width="1344"
+                  height="896" />
+                <p>
+                  En este tutorial, aprenderemos a crear un temporizador
+                  utilizando JavaScript, HTML y CSS. Un temporizador es una
+                  herramienta útil para contar hacia atrás desde un tiempo
+                  especificado. Puede ser útil en una variedad de
+                  aplicaciones, como aplicaciones de cocina, ejercicios y más.
+                </p>
+                <p>
+                  Al final de este tutorial aprenderás a crear un temporizador
+                  como este:
+                </p>
+                <video width="640" height="360" controls>
+                  <source src="/assets/videos/timer.mp4" type="video/mp4" />
+                  Tu navegador no admite la reproducción de video.
+                </video>
+                <p>
+                  Con la capacidad de poder cambiar el diseño a tu manera y
+                  completamente funcional para que lo puedas usar en tus
+                  aplicaciones web :D.
+                </p>
+                <h2 id="html-creando-la-estructura">
+                  HTML: Creando la Estructura
+                </h2>
+                <p>
+                  Comencemos creando la estructura básica en HTML para nuestro
+                  temporizador. Aquí está el código <strong>HTML</strong>:
+                </p>
+                <pre><code>&lt;div&gt;
+  &lt;h2 id="timer__title"&gt;Temporizador&lt;/h2&gt;
+  &lt;div&gt;
+    &lt;input type="number" id="inputTime" placeholder="00"/&gt;
+    &lt;span id="segundos"&gt;segundos&lt;/span&gt;
+    &lt;button id="empezar"&gt;Empezar&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div id="display"&gt;--&lt;/div&gt;
+  &lt;div&gt;
+    &lt;button id="continuarPausar"&gt;Pausar&lt;/button&gt;
+    &lt;button id="detener"&gt;Detener&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <p>
+                  En este código, hemos creado un contenedor principal con un
+                  título "Temporizador", un campo de entrada para el tiempo en
+                  segundos, un botón "Empezar" y dos botones "Pausar" y
+                  "Detener" con su respectuvo id para ser usados más tarde. El
+                  elemento
+                  <code>&lt;div id="display"&gt;</code> mostrará el tiempo
+                  restante.
+                </p>
+                <p>
+                  Si bien los botones de acción como "Empezar", "Pausar" y
+                  "Detener" o equivalentes son necesarios para interactuar
+                  correctamente con el temporizador, la división entre estos
+                  usando varios elementos
+                  <code>&lt;div&gt;</code> puede modificarse según el diseño
+                  deseado.
+                </p>
+
+                <h2 id="javascript-funcionalidad-del-temporizador">
+                  JavaScript: Funcionalidad del Temporizador
+                </h2>
+                <p>
+                  A continuación explicaremos paso a paso el cómo implementar
+                  nuestro temporizador básico.
+                </p>
+                <ol>
+                  <li>
+                    <h3>Declaración de Variables Iniciales:</h3>
+                  </li>
+                  <pre><code>let timer = 0;
+let isRunning = false;
+let remainingSeconds = 0;</code></pre>
+                  <ul>
+                    <li>
+                      <code>timer</code>: Esta variable se utilizará para
+                      almacenar el identificador del intervalo que ejecuta la
+                      función <code>updateTimer</code> para contar el tiempo.
+                    </li>
+                    <li>
+                      <code>isRunning</code>: Indica si el temporizador está
+                      en funcionamiento o no.
+                    </li>
+                    <li>
+                      <code>remainingSeconds</code>: Almacena la cantidad de
+                      segundos restantes en el temporizador.
+                    </li>
+                  </ul>
+                  <li>
+                    <h3>Selección de Elementos HTML:</h3>
+                  </li>
+                  <pre><code>let empezarButton = document.getElementById("empezar");
+let continuarPausarButton = document.getElementById("continuarPausar");
+let detenerButton = document.getElementById("detener");
+let timerInput = document.getElementById("inputTime");</code></pre>
+                  <p>
+                    Estas variables se utilizan para seleccionar los botones y
+                    el elemento de entrada de tiempo en el documento HTML
+                    utilizando su ID.
+                  </p>
+                  <li>
+                    <h3>Estado Inicial de los Botones:</h3>
+                  </li>
+                  <pre><code>continuarPausarButton.disabled = true;
+detenerButton.disabled = true;</code></pre>
+                  <p>
+                    Estas líneas deshabilitan los botones "Pausar" y "Detener"
+                    al cargar la página, ya que el temporizador aún no se ha
+                    iniciado.
+                  </p>
+                  <li>
+                    <h3>Función <code>startTimer()</code>:</h3>
+                  </li>
+                  <pre><code>function startTimer() {
+  timer = setInterval(updateTimer, 1000);
+  isRunning = true;
+  empezarButton.disabled = true;
+  timerInput.disabled = true;
+  continuarPausarButton.disabled = false;
+  detenerButton.disabled = false;
+}</code></pre>
+                  <ul>
+                    <li>
+                      Esta función se llama cuando el usuario hace clic en el
+                      botón "Empezar".
+                    </li>
+                    <li>
+                      Inicia un intervalo que llama a la función
+                      <code>updateTimer</code>
+                      cada segundo para actualizar el temporizador.
+                    </li>
+                    <li>
+                      Establece <code>isRunning</code> en
+                      <code>true</code> para indicar que el temporizador está
+                      en funcionamiento.
+                    </li>
+                    <li>
+                      Deshabilita el botón "Empezar" y el campo de entrada de
+                      tiempo.
+                    </li>
+                    <li>Habilita los botones "Pausar" y "Detener".</li>
+                  </ul>
+                  <li>
+                    <h3>Función <code>continuePauseTimer()</code>:</h3>
+                  </li>
+                  <pre><code>function continuePauseTimer() {
+if (!isRunning) {
+  timer = setInterval(updateTimer, 1000);
+  document.getElementById("continuarPausar").textContent = "Pausar";
+  isRunning = true;
+} else {
+  clearInterval(timer);
+  document.getElementById("continuarPausar").textContent = "Continuar";
+  isRunning = false;
+}
+}</code></pre>
+                  <ul>
+                    <li>
+                      Esta función se llama cuando el usuario hace clic en el
+                      botón "Pausar/Continuar".
+                    </li>
+                    <li>
+                      Si el temporizador no está en funcionamiento (<code>isRunning</code>
+                      es <code>false</code>), reanuda el temporizador al
+                      iniciar un nuevo intervalo y cambia el texto del botón a
+                      "Pausar".
+                    </li>
+                    <li>
+                      Si el temporizador está en funcionamiento, lo pausa al
+                      borrar el intervalo y cambia el texto del botón a
+                      "Continuar".
+                    </li>
+                  </ul>
+                  <li>
+                    <h3>Función <code>resetTimer()</code>:</h3>
+                  </li>
+                  <pre><code>function resetTimer() {
+  clearInterval(timer);
+  document.getElementById("continuarPausar").textContent = "Pausar";
+  document.getElementById("inputTime").value = "";
+  updateDisplay();
+  document.getElementById("display").textContent = "--";
+  isRunning = false;
+  remainingSeconds = 0;
+  empezarButton.disabled = false;
+  timerInput.disabled = false;
+  continuarPausarButton.disabled = true;
+  detenerButton.disabled = true;
+}</code></pre>
+                  <ul>
+                    <li>
+                      Esta función se llama cuando el usuario hace clic en el
+                      botón "Detener".
+                    </li>
+                    <li>Detiene el temporizador al borrar el intervalo.</li>
+                    <li>
+                      Restablece varios elementos de la página, como el texto
+                      del botón "Pausar" y el campo de entrada de tiempo.
+                    </li>
+                    <li>
+                      Restablece las variables <code>isRunning</code> y
+                      <code>remainingSeconds</code> a sus valores iniciales.
+                    </li>
+                    <li>
+                      Habilita el botón "Empezar" y deshabilita los botones
+                      "Pausar" y "Detener".
+                    </li>
+                  </ul>
+                  <li>
+                    <h3>Función <code>updateTimer()</code>:</h3>
+                  </li>
+                  <pre><code>function updateTimer() {
+if (remainingSeconds > 0) {
+  remainingSeconds--;
+} else {
+  clearInterval(timer);
+  document.getElementById("continuarPausar").textContent = "Iniciar";
+  document.getElementById("inputTime").inpuContent = "";
+  isRunning = false;
+  resetTimer();
+  return;
+}
+updateDisplay();
+}
+</code></pre>
+                  <ul>
+                    <li>
+                      Esta función se llama cada segundo mientras el
+                      temporizador está en funcionamiento.
+                    </li>
+                    <li>
+                      Reduce el valor de <code>remainingSeconds</code> en 1
+                      segundo si todavía hay tiempo restante.
+                    </li>
+                    <li>
+                      Si el tiempo llega a 0, detiene el temporizador, cambia
+                      el texto del botón "Pausar" a "Iniciar", restablece el
+                      temporizador y llama a la función resetTimer() para
+                      limpiar la página y las variables.
+                    </li>
+                  </ul>
+                  <li>
+                    <h3>Función <code>updateDisplay()</code>:</h3>
+                  </li>
+                  <pre><code>function updateDisplay() {
+let minutes = Math.floor((remainingSeconds % 3600) / 60);
+let seconds = remainingSeconds % 60;
+document.getElementById("display").textContent = `${String(minutes).padStart(
+  2,
+  "0"
+)}:${String(seconds).padStart(2, "0")}`;
+}</code></pre>
+                  <p>
+                    Esta función actualiza el elemento HTML con ID "display"
+                    para mostrar el tiempo restante en formato
+                    <code>mm:ss</code>. Calcula los minutos y segundos
+                    restantes a partir de <code>remainingSeconds</code> y
+                    actualiza el contenido del elemento.
+                  </p>
+                  <li>
+                    <h3>Escuchar el Evento de Entrada de Tiempo:</h3>
+                  </li>
+                  <pre><code>document.getElementById("inputTime").addEventListener("input", () => {
+let inputSeconds = parseInt(document.getElementById("inputTime").value);
+if (!isNaN(inputSeconds) && inputSeconds >= 0) {
+  remainingSeconds = inputSeconds;
+  updateDisplay();
+}
+});</code></pre>
+                  <ul>
+                    <li>
+                      Esta parte del código escucha el evento "input" en el
+                      campo de entrada de tiempo.
+                    </li>
+                    <li>
+                      Cuando el usuario ingresa un valor válido (un número no
+                      negativo), actualiza <code>remainingSeconds</code> y
+                      llama a <code>updateDisplay()</code> para mostrar el
+                      tiempo ingresado.
+                    </li>
+                  </ul>
+                  <li>
+                    <h3>Llamados de Funciones:</h3>
+                  </li>
+                  <pre><code>empezarButton.addEventListener("click", startTimer);
+continuarPausarButton.addEventListener("click", continuePauseTimer);
+detenerButton.addEventListener("click", resetTimer);</code></pre>
+                  <p>
+                    Aquí se establecen los controladores de eventos para los
+                    botones. Cuando se hace clic en un botón específico, se
+                    llama a la función correspondiente
+                    (<code>startTimer</code>,
+                    <code>continuePauseTimer</code>, <code>resetTimer</code>)
+                    para realizar la acción deseada.
+                  </p>
+                </ol>
+                <p>
+                  Al final, con este código JavaScript dispondremos de un
+                  temporizador con funciones para iniciar, pausar, detener y
+                  reiniciar el temporizador, así como para actualizar el
+                  tiempo restante en la pantalla a cada segundo.
+                </p>
+                <p>
+                  Uff, bueno, ya terminamos con la lógica de JavaScript para
+                  nuestro temporizador, si ya has llegado hasta aquí,
+                  ¡felicidades! ya completaste lo más complicado. Si por
+                  alguna razón te quedaste atascad@, no te preocupes, puedes
+                  volver a echar un vistazo a los pasos anteriores para
+                  aclarar tus dudas :&#41;.
+                </p>
+                <h2 id="css-estilizando-el-temporizador">
+                  CSS: Estilizando el Temporizador
+                </h2>
+                <p>
+                  Finalmente, agreguemos estilos CSS para que nuestro
+                  temporizador se vea atractivo.
+                </p>
+                <p>
+                  Para ello, agragaremos algunas clases con la propiedad
+                  <code>class="..."</code> y usaremos algunos
+                  <code>id="..."</code> para poder estilizar los elementos en
+                  nuestro CSS. A continuación nuestro archivo
+                  <strong>HTML</strong> actualizado con sus nuevas clases:
+                </p>
+                <pre><code>&lt;div class="timer"&gt;
+  &lt;h2 id="timer__title"&gt;Temporizador&lt;/h2&gt;
+  &lt;div&gt;
+    &lt;input type="number" id="inputTime" placeholder="00" /&gt;
+    &lt;span id="segundos"&gt;segundos&lt;/span&gt;
+    &lt;button class="button" id="empezar"&gt;Empezar&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div id="display"&gt;--&lt;/div&gt;
+  &lt;div class="timer__buttons"&gt;
+    &lt;button class="button" id="continuarPausar"&gt;Pausar&lt;/button&gt;
+    &lt;button class="button" id="detener"&gt;Detener&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <p>
+                  Ahora que tenemos nuestros elementos HTML con sus clases
+                  declaradas podemos empezar a estilizar nuestro temporizador
+                  usando nuestra hoja de estilos <strong>CSS</strong>. A
+                  continuación, un ejemplo del cómo podríamos modificar
+                  nuestro temporizador usando clases (<code>.clase</code>) y
+                  id's (<code>#id</code>):
+                </p>
+                <pre><code>/* Estilos generales del temporizador */
+.timer {
+  max-width: 400px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+}
+
+#timer__title {
+  font-size: 24px;
+}
+
+#inputTime {
+  width: 60px;
+  font-size: 16px;
+}
+
+/* Estilos para los botones */
+.button {
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+}
+
+/* Estilos para el reloj */
+#display {
+  font-size: 36px;
+}
+
+/* Estilos para el contenedor de botones */
+.timer__buttons {
+  margin-top: 16px;
+}</code></pre>
+                <p>
+                  Este fue un ejemplo del cómo aplicar estilos a este
+                  temporizador. Nosotros, aplicando alguno que otro estilo,
+                  modificando una cosa por aquí y por allá, obtuvimos el
+                  siguiente temporizador:
+                </p>
+                <div id="temporizador-ejemplo" class="timer__container">
+                  <div class="timer">
+                    <h2 id="timer__title">Temporizador</h2>
+                    <div>
+                      <input type="number" id="inputTime" placeholder="00" />
+                      <span id="segundos">segundos</span>
+                      <button class="button" id="empezar">Empezar</button>
+                    </div>
+                    <div id="display">--</div>
+                    <div class="timer__buttons">
+                      <button class="button" id="continuarPausar">
+                        Pausar
+                      </button>
+                      <button class="button" id="detener">Detener</button>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  Este fue nuestro ejemplo de temporizador, pero recuerda, el
+                  límite es tu imaginación y puedes modificarlo cuanto gustes
+                  para que se adapte a tu estilo ;&#41;.
+                </p>
+                <h2 id="ready-to-go">Ready to go!</h2>
+                <p>
+                  Ahora tienes un temporizador funcional creado con HTML, CSS
+                  y JavaScript. Puedes personalizar aún más el estilo y la
+                  funcionalidad según tus necesidades. ¡Diviértete
+                  experimentando con tu nuevo temporizador!
+                </p>
+                <p>
+                  ¡Esperamos que este tutorial te haya sido útil! Si deseas
+                  aprender más sobre desarrollo web, no dudes en explorar más
+                  en <a href="/blog/index.html">Codificable</a> para obtener
+                  recursos adicionales.
+                </p>
+              </div>
+              <a class="back-to-top" href="#top">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g>
+                    <path d="M15 12.5L10 7.5L5 12.5" stroke="#171717" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </g>
+                </svg>
+                top
+              </a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="container footer">
+      <ul class="footer-links">
+        <li><a href="">Link 1</a></li>
+        <li><a href="">Link 2</a></li>
+        <li><a href="">Link 3</a></li>
+        <li><a href="">Link 4</a></li>
+        <li><a href="">Link 5</a></li>
+      </ul>
+      <ul class="social-links">
+        <li>
+          <a href="https://www.facebook.com/" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path
+                  d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path
+                  d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.twitter.com/" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path
+                  d="M22 4.00002C22 4.00002 21.3 6.10002 20 7.40002C21.6 17.4 10.6 24.7 2 19C4.2 19.1 6.4 18.4 8 17C3 15.5 0.5 9.60002 3 5.00002C5.2 7.60002 8.6 9.10002 12 9.00002C11.1 4.80002 16 2.40002 19 5.20002C20.1 5.20002 22 4.00002 22 4.00002Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.github.com/" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path
+                  d="M15 22V18C15.1392 16.7473 14.78 15.4901 14 14.5C17 14.5 20 12.5 20 9C20.08 7.75 19.73 6.52 19 5.5C19.28 4.35 19.28 3.15 19 2C19 2 18 2 16 3.5C13.36 3 10.64 3 8.00004 3.5C6.00004 2 5.00004 2 5.00004 2C4.70004 3.15 4.70004 4.35 5.00004 5.5C4.27191 6.51588 3.91851 7.75279 4.00004 9C4.00004 12.5 7.00004 14.5 10 14.5C9.61004 14.99 9.32004 15.55 9.15004 16.15C8.98004 16.75 8.93004 17.38 9.00004 18V22"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M9 18C4.49 20 4 16 2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </g>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <small class="footer__text">&copy; 2023 Codificable - Todos los derechos reservados</small>
+    </footer>
+  </div>
+  <script src="../javaScript/menu.js"></script>
+  <script src="../javaScript/indexForm.js"></script>
+  <script src="../javaScript/temporizador.js"></script>
+</body>
+
+</html>
