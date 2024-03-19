@@ -2,13 +2,9 @@
 
 ## Recursos
 
-- <a href="https://github.com/orgs/codeableorg/projects/175" target="_blank">Tablero Kanban</a>
 - <a href="https://www.figma.com/file/gO1WgnPpKHkH92eqWroSQp/JavaScript-Components?type=design&node-id=701%3A4008&mode=design&t=ZTo4EFBqGiXZxxx2-1" target="_blank">Diseños en Figma</a>
 
 ## El Proyecto
-
-El proyecto consiste en 3 desafíos, en incremento de dificultad. Trabajaremos sobre la web de Codificable para agregar pequeñas funcionalidades y agregaremos dos artículos par presentar dos componentes que usan JavaScript intensamente para funcionar.
-
 ## Nuevas funcionalidades
 
 ### Menú desplegable en móviles
@@ -60,7 +56,7 @@ Deberán crear un articulo tutorial de cómo crear un componente "Calculadora" u
   <source src="https://res.cloudinary.com/dwdgpw20b/video/upload/v1696523840/illustrations/calculator_hhlcng.mov" type="video/mp4" />
 </video>
 
-### Recomendaciones para la implementación
+### implementación
 
 La calculadora puede gestionar 3 variables:
 - ``numeroPrevio``: empieza en `""`
